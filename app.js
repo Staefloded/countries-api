@@ -24,10 +24,11 @@ const ui = (() => {
         spinner.removeAttribute("hidden");
         await myFetch.getData();
         let output = "";
+        console.log(data);
         data
           .filter((country) => country.region.toLowerCase().includes(searchRegion.toLowerCase()))
           .forEach((country) => {
-            const { flag, name, capital, region, languages, subregion, population } = country;
+            const { flag, name, capital, region, timezones, subregion, population } = country;
             output += `<div class="country">
               <div class="img--container">
                 <img class="country--img" src=${flag} alt="Flag">
@@ -46,12 +47,6 @@ const ui = (() => {
                       ? `<span class="small">${region}</span>`
                       : "<span class='error'>Not Available</span>"
                   }</p>
-                
-                <p><span class="title">Languages:</span> ${
-                  languages
-                    ? `<span class="small">${languages.map((language) => language.name)}</span>`
-                    : "<span class='error'>Not Available</span>"
-                }</p>
 
                   <p><span class="title">Subregion:</span> ${
                     subregion
@@ -60,6 +55,12 @@ const ui = (() => {
                   }</p>
                 
                 <p><span class="title">Population:</span> ${numberWithCommas(population)}</p>
+                                
+                   <p><span class="title">Timezones:</span> ${
+                     timezones
+                       ? `<span class="small">${timezones.join(", ")}</span>`
+                       : "<span class='error'>Not Available</span>"
+                   }</p>
               </div>
             </div>`;
           });

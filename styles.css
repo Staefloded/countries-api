@@ -3,8 +3,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
 *,
-*::before,
-*::after {
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -91,7 +91,7 @@ p {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   transition: all 0.3s ease;
-  max-width: 100%;
+  width: 100%;
   transition: 0.3s all;
   opacity: 1;
   animation-name: fadeInOpacity;
@@ -107,7 +107,6 @@ p {
 
 .img--container {
   width: 100%;
-  height: 110%;
 }
 
 .country--img {
@@ -183,12 +182,16 @@ p {
 }
 
 @media (max-width: 1000px) {
-  html {
-    font-size: 55%;
-  }
-
   .search--container {
     width: 100%;
+  }
+
+  .header {
+    width: 100%;
+  }
+
+  .header h1 {
+    letter-spacing: 1rem;
   }
 
   .output {
@@ -197,7 +200,14 @@ p {
 }
 
 @media (max-width: 600px) {
+  html {
+    font-size: 55%;
+  }
   .output {
     grid-template-columns: 1fr;
+  }
+
+  .country--text {
+    padding: 1rem;
   }
 }
